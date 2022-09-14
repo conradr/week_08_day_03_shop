@@ -3,10 +3,10 @@ import Product from './Product'
 import Basket from './Basket'
 
 const ProductList = ({products, basket, onProductSelected}) => {
-    const productItems = products.map((product) => {
+    const productItems = products.map((product, index) => {
         return (
           <Product
-            key={product.id}
+            key={index}
             product={product}
             onProductSelected={onProductSelected}
           />

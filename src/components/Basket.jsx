@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 
 const Basket = ({basket}) => {
 
-    const basketItems = basket.map((product) => {
-        return <li key={product.id}>{product.name}</li>
+    const basketItems = basket.map((product, index) => {
+        return <li key={index}>{product.name}</li>
 
     })
   return (

@@ -45,9 +45,9 @@ const ShopContainer = () => {
   ]
   const [products, setProducts] = useState(productsData)
   const [basket, setBasket] = useState(() => {
-    const basketJSON = localStorage.getItem('Basket')
+  const basketJSON = localStorage.getItem('Basket')
     if (basketJSON == null) {
-      return basket
+      return localStorage.setItem('Basket', JSON.stringify([]))
     } else {
       return JSON.parse(basketJSON)
     }

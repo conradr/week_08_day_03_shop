@@ -1,9 +1,9 @@
 import React from 'react'
 
 const Cart = ({ basket, basketTotal }) => {
-  const basketItems = basket.map((product) => {
+  const basketItems = basket.map((product, index) => {
     return (
-      <li key={product.id}>
+      <li key={index}>
         {product.name} - £ {product.price}
       </li>
     )
