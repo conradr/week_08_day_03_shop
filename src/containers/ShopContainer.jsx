@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Basket from '../components/Basket'
 import Cart from '../components/Cart'
 import ProductList from '../components/ProductList'
@@ -44,8 +44,18 @@ const ShopContainer = () => {
     },
   ]
   const [products, setProducts] = useState(productsData)
-  const [basket, setBasket] = useState([])
+  const [basket, setBasket] = useState(() => {
+    const basketJSON = localStorage.getItem('Basket')
+    if (basketJSON == null) {
+      return basket
+    } else {
+      return JSON.parse(basketJSON)
+    }
+  })
 
+    useEffect(() => {
+      localStorage.setItem('Basket', JSON.stringify(basket))
+    }, [basket])
 
   let selectedProduct
   const handleProductSelected = (productId) => {
